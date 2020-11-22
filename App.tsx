@@ -3,17 +3,20 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import logo from "./assets/iwaku.png";
+import logo2 from "./assets/ishi.png";
 import * as ImagePicker from "expo-image-picker";
 // シェアリング機能使いますよ｡という宣言
 import * as Sharing from "expo-sharing";
 
 export default function App() {
-// 型の定義
-  interface SelectedImageInfo{
+  // 型の定義
+  interface SelectedImageInfo {
     localUri: String;
   }
-// Reactのフックという機能の一つ｡クラスの定義の一つを全体で使えるようにしたもの？
-  const [selectedImage, setSelectedImage] = React.useState<SelectedImageInfo | undefined>();
+  // Reactのフックという機能の一つ｡クラスの定義の一つを全体で使えるようにしたもの？
+  const [selectedImage, setSelectedImage] = React.useState<
+    SelectedImageInfo | undefined
+  >();
 
   let openImagePickerAsync = async () => {
     let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
@@ -61,7 +64,9 @@ export default function App() {
       <Image source={logo} style={styles.logo} />
       <Text style={styles.instructions}>Hello, Sparta Camp!</Text>
       <Pressable onPress={openImagePickerAsync} style={styles.button}>
-        <Text style={styles.buttonText}>Pick a photo</Text>
+        <Text>
+          <Image source={logo2} style={styles.logo2} />
+        </Text>
       </Pressable>
     </View>
   );
@@ -80,20 +85,26 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     resizeMode: "contain",
   },
+  logo2: {
+    width: 100,
+    height: 100,
+    marginBottom: 10,
+    resizeMode: "contain",
+  },
   instructions: {
     color: "magenta",
     fontSize: 30,
     marginHorizontal: 15,
   },
-  button: {
-    backgroundColor: "blue",
-    padding: 20,
-    borderRadius: 5,
-  },
-  buttonText: {
-    fontSize: 20,
-    color: "#fff",
-  },
+  // button: {
+  //   backgroundColor: "blue",
+  //   padding: 20,
+  //   borderRadius: 5,
+  // },
+  // buttonText: {
+  //   fontSize: 20,
+  //   color: "#fff",
+  // },
   thumbnail: {
     width: 300,
     height: 300,
