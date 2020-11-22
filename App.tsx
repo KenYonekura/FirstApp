@@ -7,7 +7,7 @@ import logo from "./assets/sparta.jpg";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Image source={ logo } style={styles.logo} />
+      <Image source={logo} style={styles.logo} />
       <Text style={styles.instructions}>Hello, Sparta Camp!</Text>
     </View>
   );
@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   instructions: {
-    color: "#195",
-    fontSize: 18,
+    color: "magenta",
+    fontSize: 30,
     marginHorizontal: 15,
   },
 });
