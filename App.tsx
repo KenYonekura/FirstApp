@@ -1,7 +1,7 @@
 //App.tsx
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import logo from "./assets/sparta.jpg";
 
 export default function App() {
@@ -9,6 +9,11 @@ export default function App() {
     <View style={styles.container}>
       <Image source={logo} style={styles.logo} />
       <Text style={styles.instructions}>Hello, Sparta Camp!</Text>
+      <Pressable 
+      onPress={() => alert("Hello World!")}
+      style={{backgroundColor:"blue"}}>
+        <text style={{fontSize: 20, color:"#fff"}}>Pick a Photo</text>
+      </Pressable>
     </View>
   );
 }
