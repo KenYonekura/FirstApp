@@ -2,15 +2,17 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import logo from "./assets/sparta.jpg";
-import * as ImagePicker from7 "expo-image-picker";
+import logo from "./assets/iwaku.png";
+import * as ImagePicker from "expo-image-picker";
+// シェアリング機能使いますよ｡という宣言
+import * as Sharing from "expo-sharing";
 
 export default function App() {
-
+// 型の定義
   interface SelectedImageInfo{
     localUri: String;
   }
-
+// Reactのフックという機能の一つ｡クラスの定義の一つを全体で使えるようにしたもの？
   const [selectedImage, setSelectedImage] = React.useState<SelectedImageInfo | undefined>();
 
   let openImagePickerAsync = async () => {
@@ -33,15 +35,26 @@ export default function App() {
     }
   };
 
-  if (selectedImage !== (null || undefined)){
-    return(
+  let openShareDialogAsync = async () => {
+    if (!(await Sharing.isAvailableAsync())) {
+      alert(`お使いのプラットフォームではシェア機能は利用できません`);
+      return;
+    } else if (selectedImage) {
+      await Sharing.shareAsync(selectedImage.localUri);
+    }
+  };
+  if (selectedImage !== (null || undefined)) {
+    return (
       <View style={styles.container}>
         <Image
-          source={{uri: selectedImage?.localUri}}
+          source={{ uri: selectedImage?.localUri }}
           style={styles.thumbnail}
         />
+        <Pressable onPress={openShareDialogAsync} style={styles.button}>
+          <Text style={styles.buttonText}>Share this photo</Text>
+        </Pressable>
       </View>
-    )
+    );
   }
   return (
     <View style={styles.container}>
