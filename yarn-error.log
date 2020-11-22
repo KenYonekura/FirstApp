@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js install
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js add expo
 
 PATH: 
   /usr/local/opt/libpq/bin:/usr/local/opt/libpq/bin:/Users/yonekuraken/.rbenv/shims:/usr/local/opt/mysql/bin:/usr/local/bin:/usr/local/bin:/usr/local/opt/php@7.4/sbin:/usr/local/opt/php@7.4/bin:/Users/yonekuraken/.composer/vendor/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/yonekurakennoMacBook-Pro/.nodebrew/current/bin
